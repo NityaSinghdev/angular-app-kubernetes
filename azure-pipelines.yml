@@ -20,15 +20,14 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-
-
     - task: Docker@2
       inputs:
        containerRegistry: 'Dockerhub'
-       repository: 'azuredevopstest'
+       repository: 'nityasinghdev/azuredevopstest'
        command: 'build'
        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-       tags: 'nityasinghdev/azuredevopstest:$(Build.BuildId)'
+
+    
     - task: Bash@3
       inputs:
         targetType: 'inline'
