@@ -20,13 +20,13 @@ stages:
     pool:
       vmImage: ubuntu-latest
     steps:
-    - task: Docker@2
-      inputs:
-       containerRegistry: 'dockerhubcon'
-       repository: 'nityasinghdev/azuredevopstest'
-       command: 'build'
-       Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-       tags: '$(Build.BuildId)'
+    # - task: Docker@2
+    #   inputs:
+    #    containerRegistry: 'dockerhubcon'
+    #    repository: 'nityasinghdev/azuredevopstest'
+    #    command: 'build'
+    #    Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+    #    tags: '$(Build.BuildId)'
 
     
     - task: Bash@3
@@ -36,13 +36,16 @@ stages:
           # Write your commands here
           
           echo 'Hello nitya'
+          docker build -t 'nityasinghdev/azuredevopstest:$(Build.BuildId)' '$(Build.SourcesDirectory)/Dockerfile'
           docker image ls
-    - task: Docker@2
-      inputs:
-          containerRegistry: 'dockerhubcon'
-          repository: 'nityasinghdev/azuredevopstest'
-          command: 'push'
-          tags: '$(Build.BuildId)'
+    #       docker push 'nityasinghdev/azuredevopstest:$(Build.BuildId)'
+    # - task: Docker@2
+    #   inputs:
+    #       containerRegistry: 'dockerhubcon'
+    #       repository: 'nityasinghdev/azuredevopstest'
+    #       command: 'push'
+    #       tags: '$(Build.BuildId)'
+    
     # - task: CopyFiles@2
     #   inputs:
     #     Contents: 'deployment.azure.yaml'
