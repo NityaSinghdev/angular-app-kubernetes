@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       inputs:
        containerRegistry: 'dockerhubcon'
-       repository: 'azuredevopstest'
+       repository: 'nitysinghdev/azuredevopstest'
        command: 'build'
        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
        tags: '$(Build.BuildId)'
@@ -40,7 +40,7 @@ stages:
     - task: Docker@2
       inputs:
           containerRegistry: 'dockerhubcon'
-          repository: 'azuredevopstest'
+          repository: 'nitysinghdev/azuredevopstest'
           command: 'push'
           tags: '$(Build.BuildId)'
     # - task: CopyFiles@2
