@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       inputs:
        containerRegistry: 'dockerhubcon'
-       repository: 'nityasinghdev/azuredevopstest'
+       repository: 'azuredevopstest'
        command: 'build'
        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
        tags: '$(Build.BuildId)'
