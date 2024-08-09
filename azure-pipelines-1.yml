@@ -22,7 +22,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-       containerRegistry: 'dockerhubconnection'
+       containerRegistry: 'dockerhubcon'
        repository: 'nityasinghdev/azuredevopstest'
        command: 'build'
        Dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
@@ -39,7 +39,7 @@ stages:
           docker image ls
     - task: Docker@2
       inputs:
-          containerRegistry: 'dockerhubconnection'
+          containerRegistry: 'dockerhubcon'
           repository: 'azuredevopstest'
           command: 'push'
           tags: '$(Build.BuildId)'
