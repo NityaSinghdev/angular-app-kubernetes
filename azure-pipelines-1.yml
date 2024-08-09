@@ -36,7 +36,8 @@ stages:
           # Write your commands here
           
           echo 'Hello nitya'
-          docker build -t 'nityasinghdev/azuredevopstest:$(Build.BuildId)' '$(Build.SourcesDirectory)/Dockerfile'
+          cd '$(Build.SourcesDirectory)
+          docker build -t 'nityasinghdev/azuredevopstest:$(Build.BuildId)' .
           docker image ls
           docker push 'nityasinghdev/azuredevopstest:$(Build.BuildId)'
     # - task: Docker@2
