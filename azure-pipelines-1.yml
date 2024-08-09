@@ -40,10 +40,6 @@ stages:
           
           echo 'Hello nitya'
           cd '$(Build.SourcesDirectory)'
-          - task: Docker@2
-            inputs:
-              containerRegistry: 'dockerhubcon'
-              command: 'login'
           docker build -t 'nityasinghdev/azuredevopstest:$(Build.BuildId)' .
           docker image ls
           docker push 'nityasinghdev/azuredevopstest:$(Build.BuildId)'
