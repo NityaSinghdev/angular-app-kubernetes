@@ -38,14 +38,14 @@ stages:
           echo 'Hello nitya'
           docker build -t 'nityasinghdev/azuredevopstest:$(Build.BuildId)' '$(Build.SourcesDirectory)/Dockerfile'
           docker image ls
-    #       docker push 'nityasinghdev/azuredevopstest:$(Build.BuildId)'
+          docker push 'nityasinghdev/azuredevopstest:$(Build.BuildId)'
     # - task: Docker@2
     #   inputs:
     #       containerRegistry: 'dockerhubcon'
     #       repository: 'nityasinghdev/azuredevopstest'
     #       command: 'push'
     #       tags: '$(Build.BuildId)'
-    
+
     # - task: CopyFiles@2
     #   inputs:
     #     Contents: 'deployment.azure.yaml'
